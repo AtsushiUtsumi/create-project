@@ -4,7 +4,11 @@ clear
 # 変数定義
 GIT_DIRECTORY_NAME="$(pwd)"
 HERE="$(cd "$(dirname "$0")" && pwd)"
-PROJECT_NAME="sugumi"
+if [ $# -lt 1 ]; then
+  echo "Usage: $0 <project_name>"
+  exit 1
+fi
+PROJECT_NAME="$1"
 APPS_DIRECTORY_NAME="apps"
 APP_NAMES=("${PROJECT_NAME}" "hoge" "fuga")
 
