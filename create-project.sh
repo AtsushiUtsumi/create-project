@@ -1,6 +1,8 @@
 #!/bin/bash
+clear
+GIT_DIRECTORY_NAME="$(pwd)/xxx"
 
-GIT_DIRECTORY_NAME="xxx"
+echo $GIT_DIRECTORY_NAME
 PROJECT_NAME="sugumi"
 APPS_DIRECTORY_NAME="apps"
 APP_NAMES=("${PROJECT_NAME}" "hoge" "fuga")
@@ -16,6 +18,7 @@ rm -r ${GIT_DIRECTORY_NAME}
 fi
 
 mkdir -p ${GIT_DIRECTORY_NAME}
+cp ./docker-compose.yml "${GIT_DIRECTORY_NAME}/docker-compose.yml"
 
 # プロジェクトディレクトリに移動
 cd ${GIT_DIRECTORY_NAME}
