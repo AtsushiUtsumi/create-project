@@ -4,7 +4,6 @@ clear
 # 変数定義
 GIT_DIRECTORY_NAME="$PWD"
 echo "実行されたディレクトリ: $GIT_DIRECTORY_NAME"
-exit
 HERE="$(cd "$(dirname "$0")" && pwd)"
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <project_name>"
@@ -70,7 +69,7 @@ cd ..
 mkdir ci-template
 
 # VSCodeで開く
-code .
+# code .
 
 # ここまで
 exit
