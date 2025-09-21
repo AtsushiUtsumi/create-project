@@ -27,7 +27,7 @@ cd ${GIT_DIRECTORY_NAME}
 mkdir mysql
 mkdir nginx
 mkdir documents
-echo -e "#!/bin/bash\necho RUN">> "run.sh"
+echo -e "#!/bin/bash\ndocker compose up -d">> "run.sh"
 chmod 777 ./run.sh
 echo -e "#!/bin/bash\necho TEST">> "test.sh"
 chmod 777 ./test.sh
@@ -63,7 +63,7 @@ cd ..
 mkdir ci-template
 
 # VSCodeで開く
-#code .
+code .
 
 # ここまで
 exit
