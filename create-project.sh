@@ -20,7 +20,10 @@ mkdir -p ${GIT_DIRECTORY_NAME}
 # プロジェクトディレクトリに移動
 cd ${GIT_DIRECTORY_NAME}
 
-echo -e "services:container_name:image:ports:environments:" >> docker-compose.yml
+echo "services:" > docker-compose.yml
+echo "db:container_name:image:ports:- 7777:7777environments:" >> docker-compose.yml
+echo "rabbitmq-dev:container_name:image:rabbitmq:3.8-managementports:- 15672:15672environments:" >> docker-compose.yml
+echo ":container_name:image:ports:environments:" >> docker-compose.yml
 
 # リポジトリ全体で必要なディレクトリ、コンテナ用のディレクトリを作成
 mkdir mysql
@@ -62,7 +65,7 @@ cd ..
 mkdir ci-template
 
 # VSCodeで開く
-code .
+#code .
 
 # ここまで
 exit

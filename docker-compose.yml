@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  db:
+    container_name: db
+    image: mysql:8.0
+    ports:
+      - "7777:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+
+  rabbitmq-dev:
+    container_name: rabbitmq-dev
+    image: rabbitmq:3.8-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+  web:
+    container_name: web
+    image: python:3.13-slim
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./apps:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - rabbitmq-dev
